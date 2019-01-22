@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <h2>Table</h2>
+  <p>The .table-responsive class creates a responsive table which will scroll horizontally on small devices (under 768px). When viewing on anything larger than 768px wide, there is no difference:</p>                                                                                      
+  <div class="table-responsive">
+
+    <div class="col-sm-2 pull-right">
+      <input class="form-control input-sm" id="filterInput" type="text" placeholder="Search.." style="text-align: right">
+    </div>
+    <br><br>
+
+  <table id="file_table" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Firstname</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="success">
+        <td>1</td>
+        <td>A</td>
+      </tr>
+      <tr class="warning">
+        <td>3</td>
+        <td>B</td>
+      </tr>
+      <tr class="info">
+        <td>1</td>
+        <td>C</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#filterInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#file_table tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+</body>
+</html>
+
